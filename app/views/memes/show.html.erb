@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>Type:</strong>
-  <%= @meme.type %>
+  <strong>Meme Type:</strong>
+  <%= @meme.meme_type %>
 </p>
 
 <p>
@@ -32,7 +32,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @meme.user_id %>
+  <%= @meme.owner_id %>
 </p>
 
 <%= link_to 'Edit', edit_meme_path(@meme) %> |

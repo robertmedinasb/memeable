@@ -17,8 +17,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :type %>
-    <%= form.text_field :type %>
+    <%= form.label :meme_type %>
+    <%= form.text_field :meme_type %>
   </div>
 
   <div class="field">
@@ -42,8 +42,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.hidden_field :owner_id, value: current_user.id %>
   </div>
 
   <div class="actions">
