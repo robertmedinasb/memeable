@@ -17,7 +17,6 @@ class MemesController < ApplicationController
   # GET /memes/new
   def new
     @meme = Meme.new
-    p current_user
   end
 
   # GET /memes/1/edit

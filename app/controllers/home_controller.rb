@@ -3,5 +3,7 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!, only: :show
 
-  def index; end
+  def index
+    @memes = Meme.all
+  end
 end

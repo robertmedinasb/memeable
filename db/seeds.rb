@@ -115,6 +115,7 @@ memes = [
     category: 'Star Wars',
     tags: %w[starwars dance troopers]
   }
+
 ]
 users = User.all
 

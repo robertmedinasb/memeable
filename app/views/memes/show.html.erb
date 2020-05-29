@@ -1,39 +1,30 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @meme.title %>
 </p>
-
 <p>
   <strong>Meme Type:</strong>
   <%= @meme.meme_type %>
 </p>
-
 <p>
   <strong>Url source:</strong>
   <%= @meme.url_source %>
 </p>
-
 <p>
   <strong>Votes count:</strong>
   <%= @meme.votes_count %>
 </p>
-
 <p>
   <strong>Comments count:</strong>
   <%= @meme.comments_count %>
 </p>
-
 <p>
   <strong>Category:</strong>
   <%= @meme.category_id %>
 </p>
-
 <p>
   <strong>User:</strong>
   <%= @meme.owner_id %>
 </p>
-
 <%= link_to 'Edit', edit_meme_path(@meme) %> |
-<%= link_to 'Back', memes_path %>
+<%= link_to 'Back', root_path %>
