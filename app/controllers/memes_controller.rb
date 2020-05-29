@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class MemesController < ApplicationController
+  before_action :authenticate_user!, only: %i[new create show]
   before_action :set_meme, only: %i[show edit update destroy]
 
   # GET /memes
@@ -16,6 +17,7 @@ class MemesController < ApplicationController
   # GET /memes/new
   def new
     @meme = Meme.new
+    p current_user
   end
 
   # GET /memes/1/edit
@@ -25,7 +27,6 @@ class MemesController < ApplicationController
   # POST /memes.json
   def create
     @meme = Meme.new(meme_params)
-
     respond_to do |format|
       if @meme.save
         format.html { redirect_to @meme, notice: 'Meme was successfully created.' }
