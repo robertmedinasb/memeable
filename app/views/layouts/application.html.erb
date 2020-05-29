@@ -4,20 +4,12 @@
     <title>Memeable</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <%if user_signed_in?%>
-    <%=link_to "Log Out", destroy_user_session_path, method: :delete%>
-    <%else%>
-    <%=link_to "Sign In", new_user_session_path%>
-    <%end%>
+    <%= render "home/nav" %>
     <%= yield %>
+    <%= render "home/footer" %>
   </body>
 </html>

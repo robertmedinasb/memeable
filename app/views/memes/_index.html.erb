@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+<h1>Memes</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Type</th>
+      <th>Url source</th>
+      <th>Votes count</th>
+      <th>Comments count</th>
+      <th>Category</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% unless @memes.nil? %>
+      <% @memes.each do |meme| %>
+        <tr>
+          <td><%= meme.title %></td>
+          <td><%= meme.type %></td>
+          <td><%= meme.url_source %></td>
+          <td><%= meme.votes_count %></td>
+          <td><%= meme.comments_count %></td>
+          <td><%= meme.category_id %></td>
+          <td><%= meme.owner_id %></td>
+          <td><%= link_to 'Show', meme %></td>
+          <td><%= link_to 'Edit', edit_meme_path(meme) %></td>
+          <td><%= link_to 'Destroy', meme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Meme', new_meme_path %>

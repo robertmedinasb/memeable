@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class MemesController < ApplicationController
-  before_action :set_meme, only: [:show, :edit, :update, :destroy]
+  before_action :set_meme, only: %i[show edit update destroy]
 
   # GET /memes
   # GET /memes.json
@@ -9,8 +11,7 @@ class MemesController < ApplicationController
 
   # GET /memes/1
   # GET /memes/1.json
-  def show
-  end
+  def show; end
 
   # GET /memes/new
   def new
@@ -18,8 +19,7 @@ class MemesController < ApplicationController
   end
 
   # GET /memes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /memes
   # POST /memes.json
@@ -62,13 +62,14 @@ class MemesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_meme
-      @meme = Meme.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def meme_params
-      params.require(:meme).permit(:title, :meme_type, :url_source, :votes_count, :comments_count, :category_id, :owner_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_meme
+    @meme = Meme.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def meme_params
+    params.require(:meme).permit(:title, :meme_type, :url_source, :votes_count, :comments_count, :category_id, :owner_id)
+  end
 end

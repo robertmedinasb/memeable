@@ -1,0 +1,16 @@
+.nav {
+  border-bottom: 1px solid #000000;
+  padding: 5px;
+}
+.nav,
+.nav_links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.nav_links {
+  list-style: none;
+}
+.nav_links li {
+  margin: 0 7px;
+}

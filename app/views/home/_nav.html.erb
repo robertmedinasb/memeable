@@ -1,0 +1,21 @@
+<nav class="nav">
+  <section class="nav_sections">
+    <div class="nav_logo">
+      <a href="/"><img src="/memeable.png" alt=""></a>
+    </div>
+  </section>
+  <section class="nav_sections">
+    <ul class="nav_links">
+      <li><%= link_to  "By Category", root_path %></li>
+      <li><%= link_to  "By Popularity", root_path %></li>
+      <li><%= link_to  "Search", root_path %></li>
+    </ul>
+  </section>
+  <section class="nav_sections">
+    <%if user_signed_in?%>
+      <%=link_to "Log Out", destroy_user_session_path, method: :delete%>
+    <%else%>
+      <%=link_to "Sign In", new_user_session_path%>
+    <%end%>
+  </section>
+</nav>
