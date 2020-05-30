@@ -11,13 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.text_field :body, placeholder: 'Write a new comment here...' %>
-  </div>
-
-  <%= form.hidden_field :meme_id, value: meme_id %>
-
-  <div class="actions">
-    <%= submit_tag 'Comment!' %>
-  </div>
+  <%if user_signed_in?%>
+    <div class="field">
+      <%= form.text_field :body, placeholder: 'Write a new comment here...', required: true %>
+    </div>
+    <%= form.hidden_field :meme_id, value: meme_id %>
+    <div class="actions">
+      <%= submit_tag 'Comment!' %>
+    </div>
+  <%else %>
+    <p>Login to add a comment!</p>
+  <% end %>
 <% end %>

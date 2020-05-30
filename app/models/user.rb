@@ -9,6 +9,6 @@ class User < ApplicationRecord
   has_many :memes, through: :votes
   has_many :memes, through: :comments
 
-  validates :username, presence: true, uniqueness: true
-  validates :email, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true, allow_blank: false
+  validates :email, presence: true, uniqueness: true, allow_blank: false
 end
