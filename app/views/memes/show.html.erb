@@ -7,6 +7,11 @@
 <strong>Category:</strong> <%= @category %>
 
 <strong>Votes:</strong> <%= @meme.votes_count %>
+<% if user_signed_in? %>
+  <%= link_to "Vote!", root_url + '/vote/' + @meme.id.to_s %>
+<% else %>
+  <p>Login to vote!</p>
+<% end %>
 
 <h2>Comments</h2>
 

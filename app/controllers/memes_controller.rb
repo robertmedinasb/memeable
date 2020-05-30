@@ -1,5 +1,5 @@
 class MemesController < ApplicationController
-  before_action :set_meme, only: [:show, :edit, :update, :destroy]
+  before_action :set_meme, only: %i[show edit update destroy]
 
   # GET /memes
   # GET /memes.json
@@ -63,10 +63,6 @@ class MemesController < ApplicationController
       format.html { redirect_to memes_url, notice: 'Meme was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def vote
-    # code here
   end
 
   private
