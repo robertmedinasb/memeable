@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
-Rails.application.routes.draw do
+Rails.application.routes.draw do 
+
+  get 'user_profiles', to: 'user_profiles#show'
+  get 'user_profiles/votes', to: 'user_profiles#popularity'
   resources :comments
   resources :memes
   resources :categories

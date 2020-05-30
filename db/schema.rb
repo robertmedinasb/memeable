@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2020_05_28_205033) do
     t.index ["meme_id"], name: "index_comments_on_meme_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
-
+ 
   create_table "memes", force: :cascade do |t|
     t.string "title"
     t.string "meme_type"

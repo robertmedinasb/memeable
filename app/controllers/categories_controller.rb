@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.all
+    @memescategories =  Meme.all.group_by{|meme|meme[:category_id]}
   end
 
   # GET /categories/1
