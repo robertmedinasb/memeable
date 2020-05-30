@@ -12,21 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
+    <%= form.text_field :body, placeholder: 'Write a new comment here...' %>
   </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :meme_id %>
-    <%= form.text_field :meme_id %>
-  </div>
+  <%= form.hidden_field :meme_id, value: meme_id %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= submit_tag 'Comment!' %>
   </div>
 <% end %>

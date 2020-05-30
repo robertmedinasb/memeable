@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :meme_type %>
-    <%= form.text_field :meme_type %>
+    <%= form.select :meme_type, %w[image gif] %>
   </div>
 
   <div class="field">
@@ -27,22 +27,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :votes_count %>
-    <%= form.number_field :votes_count %>
-  </div>
-
-  <div class="field">
-    <%= form.label :comments_count %>
-    <%= form.number_field :comments_count %>
-  </div>
-
-  <div class="field">
     <%= form.label :category_id %>
-    <%= form.text_field :category_id %>
-  </div>
-
-  <div class="field">
-    <%= form.hidden_field :owner_id, value: current_user.id %>
+    <%= form.select :category_id, Category.all&.map { |c| [c.name, c.id] }  %>
   </div>
 
   <div class="actions">

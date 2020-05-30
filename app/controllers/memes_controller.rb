@@ -10,6 +10,9 @@ class MemesController < ApplicationController
   # GET /memes/1
   # GET /memes/1.json
   def show
+    @category = Category.find(@meme.category_id).name
+    @comment = Comment.new
+    @comments = @meme.comments.reverse
   end
 
   # GET /memes/new
@@ -25,6 +28,7 @@ class MemesController < ApplicationController
   # POST /memes.json
   def create
     @meme = Meme.new(meme_params)
+    @meme.owner_id = current_user.id
 
     respond_to do |format|
       if @meme.save
@@ -61,6 +65,10 @@ class MemesController < ApplicationController
     end
   end
 
+  def vote
+    # code here
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_meme
@@ -69,6 +77,6 @@ class MemesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def meme_params
-      params.require(:meme).permit(:title, :meme_type, :url_source, :votes_count, :comments_count, :category_id, :owner_id)
+      params.require(:meme).permit(:title, :meme_type, :url_source, :votes_count, :comments_count, :category_id)
     end
 end
