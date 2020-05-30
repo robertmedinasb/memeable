@@ -1,14 +1,27 @@
 .main-container {
   width: 90%;
+  min-width: 600px;
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
   min-height: 80vh;
   margin-top: 100px;
 }
-.meme-container {
-  width: 100%;
-  margin: 0 auto;
-  padding: 50px 0;
+
+a, a:visited {
+  text-decoration: none;
 }
+
+.meme-container {
+  display: flex;
+  max-width: 500px;
+  margin: 30px 0;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
 .list-memes {
   display: flex;
   width: 100%;
@@ -17,9 +30,19 @@
   overflow: auto;
   margin: 10px 0;
 }
+
 .list-memes::-webkit-scrollbar {
   display: none;
 }
+
+.meme-title {
+  font-size: 32px;
+  line-height: 37px;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+
 .meme-card {
   display: flex;
   flex-direction: column;
@@ -29,15 +52,18 @@
   height: 275px;
   margin: 50px 55px 50px 0px;
 }
+
 .meme-card img {
   width: 250px;
   height: 250px;
   margin: 0;
   padding: 0;
 }
+
 .meme-route {
   height: 250px;
 }
+
 .meme-author {
   background: #000000;
   margin: 0 0 10px 0;
@@ -49,6 +75,7 @@
   justify-content: flex-start;
   font-family: "Lilita One", cursive;
 }
+
 .meme-author a,
 .meme-author a:visited,
 .meme-author span {
@@ -57,6 +84,7 @@
   line-height: 14px;
   text-decoration: none;
 }
+
 .meme-author span {
   color: #ffffff;
   margin-right: 5px;
@@ -64,4 +92,87 @@
 
 .footer {
   text-align: center;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.dark-link {
+  color: #f0f0f0;
+  padding: 5px 7px;
+  background: #181F33;
+  border-radius: 10px;
+}
+
+.pink-text {
+  font-size: 12px;
+  line-height: 14px;
+  color: #DC7F9B;
+}
+
+.text-big {
+  display: block;
+  font-size: 16px;
+  line-height: 18px;
+  margin: 10px 0;
+}
+
+.text-small {
+  display: inline-flex;
+  width: 44px;
+  line-height: 1;
+  text-align: center;
+  vertical-align: top;
+}
+
+.green-text {
+  font-size: 16px;
+  line-height: 18px;
+  color: #78CFBA;
+
+}
+
+.comment-box {
+  padding: 10px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  margin: 5px auto;
+  width: 95%;
+}
+
+.comments {
+  width: 100%;
+}
+
+.comments--title {
+  font-size: 24px;
+  line-height: 27px;
+  color: #000000;
+}
+
+.comments--input {
+  box-shadow: none;
+  padding: 10px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.comments--input::placeholder {
+  font-size: 16px;
+  line-height: 18px;
+  color: #C4C4C4;
+}
+
+.meme-buttons {
+  background: #E5E5E5;
+  border: 1px solid #000000;
 }

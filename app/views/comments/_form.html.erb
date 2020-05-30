@@ -20,6 +20,6 @@
       <%= submit_tag 'Comment!' %>
     </div>
   <%else %>
-    <p>Login to add a comment!</p>
+    <%= link_to "Login to vote!", new_user_session_path, class: 'pink-text text-big'  %>
   <% end %>
 <% end %>

@@ -1,26 +1,35 @@
-<h1><%= @meme.title %></h1>
+<div class="meme-container">
+  <h1 class="meme-title"><%= @meme.title %></h1>
+  <img src="<%= @meme.url_source %>">
 
-<img src="<%= @meme.url_source %>">
+  <div class="row mt-20">
+    <div class="meme-cat">
+      <strong>Category:</strong> <span class="dark-link"><%= @category %></span>
+    </div>
 
-<strong>Category:</strong> <%= @category %>
+    <div class="meme-votes">
+      <strong>Votes:</strong> <span class="dark-link"><%= @meme.votes_count %></span>
+      <% if user_signed_in? %>
+        <%= link_to "Vote!", root_url + '/vote/' + @meme.id.to_s %>
+      <% else %>
+        <%= link_to "Login to vote!", new_user_session_path, class: 'pink-text text-small'  %>
+      <% end %>
+    </div>
+  </div>
 
-<strong>Votes:</strong> <%= @meme.votes_count %>
-<% if user_signed_in? %>
-  <%= link_to "Vote!", root_url + '/vote/' + @meme.id.to_s %>
-<% else %>
-  <p>Login to vote!</p>
-<% end %>
+  <section class="comments">
+  <h2 class="comments--title">Comments:</h2>
 
-<h2>Comments</h2>
+  <%= render 'comments/form', comment: @comment, meme_id: @meme.id %>
 
-<%= render 'comments/form', comment: @comment, meme_id: @meme.id %>
+  <% @comments.each do |comment| %>
+    <article class="comment-box">
+      <h1 class="green-text"><%= comment.user.username %></h1>
+      <p><%= comment.body %></p>
+    </article>
+  <% end %>
 
-<% @comments.each do | comment | %>
-  <article>
-    <h1><%= comment.user.username %></h1>
-    <p><%= comment.body %></p>
-  </article>
-<% end %>
-
-<%= link_to 'Edit', edit_meme_path(@meme) %> |
-<%= link_to 'Back', root_path %>
+  </section>
+  <%= link_to 'Edit', edit_meme_path(@meme) %> |
+  <%= link_to 'Back', root_path %>
+</div>
