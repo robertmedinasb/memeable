@@ -1,27 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Categories</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Category', new_category_path %>
+<main class="meme-container">
+  <h1>By Categories</h1>
+  <br>
+  
+  <%  @memescategories.each do |categorie, memes| %>
+    <h2><%=@categories.find(categorie).name%></h2>
+    <ul class="list-memes">
+      <% memes.each do |meme| %>
+        <div class="meme-card">
+          <a class="meme-route" href="/memes/<%= meme.id %>" title="<%= meme.title  %>">
+            <img src="<%= meme.url_source %>" alt="<%= meme.title %>" ></a>
+          <div class="meme-author"><span>Created by: </span> <%= link_to meme.owner.username , "users/#{meme.owner.id}" %></div>
+        </div>
+      <% end %>
+    </ul>
+  <% end %>
+</tbody>
+</table><br>
+</main>

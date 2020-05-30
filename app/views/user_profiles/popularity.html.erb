@@ -1,0 +1,18 @@
+<main class="meme-container">
+  <h1>Most popular memes</h1>
+  <br>  
+  
+    
+    <ul class="list-memes">
+      <% @memepopularity.each do |votes| %>
+        <div class="meme-card">
+          <a class="meme-route" href="/memes/<%= votes.id %>" title="<%= votes.title  %>">
+            <img src="<%= votes.url_source %>" alt="<%= votes.title %>" ></a>
+          <div class="meme-author"><span>Created by: </span> <%= link_to votes.owner.username , "users/#{votes.owner.id}" %></div>
+        </div>
+      <% end %>
+    </ul>
+  
+</tbody>
+</table><br>
+</main>
