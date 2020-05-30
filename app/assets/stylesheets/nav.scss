@@ -1,51 +1,45 @@
+.nav-wrapper{
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+}
+
 .nav {
+  display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid #000000;
   background: #ffffff;
   padding: 5px;
-  width: 90%;
-  margin: 0 5%;
-  height: 100px;
+  width: 95%;
   top: 0;
-  position: fixed;
+  margin: 0 auto;
 }
-.nav {
-  display: flex;
-}
+
 .nav_links {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  width: inherit;
 }
-.nav_links {
+.nav ul {
   list-style: none;
+  display: inline-flex;
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
 }
 .nav_links li {
-  margin: 0 7px;
-}
-.nav a {
-  font-family: "Lilita One", cursive;
-  color: #000000;
-  text-decoration: none;
-  font-size: 20px;
+  margin-left: 10px;
+  font-size: 16px;
   line-height: 18px;
-  font-family: "Lilita One", cursive;
+  color: #000000;
 }
 .nav_sections {
   display: flex;
 }
-.nav_sections:first-child {
-  width: 80%;
-  align-items: center;
-}
-.nav_sections:last-child {
-  width: 20%;
-  align-items: center;
-  justify-content: flex-end;
-}
 
-.nav_links {
-  margin-left: 20px;
-}
 a.create_meme,
 a.sign_up,
 a.sign_in {

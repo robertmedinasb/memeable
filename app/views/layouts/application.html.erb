@@ -12,9 +12,9 @@
   </head>
   <body>
     <%= render 'layouts/nav' %>
+    <p id="notice"><%= notice %></p>
+    <p id="alert"><%= alert %></p>
     <main class="main-container">
-      <p id="notice"><%= notice %></p>
-      <p id="alert"><%= alert %></p>
       <%= yield %>
     </main>
     <%= render 'layouts/footer' %>

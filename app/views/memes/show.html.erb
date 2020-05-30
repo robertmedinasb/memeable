@@ -10,7 +10,7 @@
     <div class="meme-votes">
       <strong>Votes:</strong> <span class="dark-link"><%= @meme.votes_count %></span>
       <% if user_signed_in? %>
-        <%= link_to "Vote!", root_url + '/vote/' + @meme.id.to_s %>
+        <%= link_to "Vote!", root_url + '/vote/' + @meme.id.to_s, class: 'meme-buttons' %>
       <% else %>
         <%= link_to "Login to vote!", new_user_session_path, class: 'pink-text text-small'  %>
       <% end %>

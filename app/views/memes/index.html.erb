@@ -1,29 +1,11 @@
 <main class="meme-container">
   <h1>Memes</h1>
-  <br>
-  <% if @listmemes.class == Hash%>
-    <% @listmemes.each do |group, memes| %>
-      <h2><%= group.class == Date ? group.inspect : group.to_s %></h2>
-      <ul class="list-memes">
-        <% memes.each do |meme| %>
-          <div class="meme-card">
-            <a class="meme-route" href="/memes/<%= meme.id %>" title="<%= meme.title  %>">
-              <img src="<%= meme.url_source %>" alt="<%= meme.title %>" ></a>
-            <div class="meme-author"><span>Created by: </span> <%= meme.owner.username %></div>
-          </div>
-        <% end %>
-      </ul>
-    <% end %>
-  <% else %>
-    <h2>Popularity</h2>
-    <section class="list-popularity">
-      <% @listmemes.each do |meme| %>
-        <div class="meme-card">
-          <a class="meme-route" href="/memes/<%= meme.id %>" title="<%= meme.title  %>">
-            <img src="<%= meme.url_source %>" alt="<%= meme.title %>" ></a>
-          <div class="meme-author"><span>Created by: </span> <%= link_to meme.owner.username , "users/#{meme.owner.id}" %></div>
-        </div>
+  <% @memes.each do |group, memes| %>
+    <h2><%= group %></h2>
+    <ul class="list-memes">
+      <% memes.each do |meme| %>
+        <%= render 'card_memes', meme: meme %>
       <% end %>
-    <% end %>
-  </section>
+    </ul>
+  <% end %>
 </main>

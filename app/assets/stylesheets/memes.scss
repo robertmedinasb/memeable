@@ -10,12 +10,12 @@
 
 a, a:visited {
   text-decoration: none;
+  color: inherit;
 }
 
 .meme-container {
   display: flex;
-  max-width: 500px;
-  margin: 30px 0;
+  margin: 0 auto;
   flex-direction: column;
   align-content: center;
   align-items: center;
@@ -24,10 +24,8 @@ a, a:visited {
 
 .list-memes {
   display: flex;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  overflow: auto;
+  flex-wrap: wrap;
+  justify-content: center;
   margin: 10px 0;
 }
 
@@ -88,8 +86,8 @@ a, a:visited {
 }
 .list-popularity {
   display: flex;
-  justify-content: fe;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .footer {
@@ -152,6 +150,7 @@ a, a:visited {
 
 .comments {
   width: 100%;
+  padding: 10px 0;
 }
 
 .comments--title {
@@ -162,10 +161,12 @@ a, a:visited {
 
 .comments--input {
   box-shadow: none;
+  width: 100%;
+  height: 60px;
   padding: 10px;
   border: 1px solid #000000;
   border-radius: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 .comments--input::placeholder {
@@ -177,4 +178,12 @@ a, a:visited {
 .meme-buttons {
   background: #E5E5E5;
   border: 1px solid #000000;
+  padding: 5px 10px;
+  font-weight: normal;
+  font-family: arial, sans-serif;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
 }

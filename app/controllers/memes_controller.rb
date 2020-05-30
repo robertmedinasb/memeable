@@ -4,17 +4,17 @@ class MemesController < ApplicationController
   # GET /memes
   # GET /memes.json
   def index
-    @listmemes = Meme.all.group_by { |meme| meme[:created_at].to_date }
+    @memes = Meme.all.group_by { |meme| meme[:created_at].strftime('%B %-d, %Y') }
   end
 
-  def bycategory
-    @listmemes = Meme.all.group_by { |meme| Category.find(meme[:category_id]).name }
+  def by_category
+    @memes = Meme.all.group_by { |meme| Category.find(meme[:category_id]).name }
     render 'index'
   end
 
-  def popularity
-    @listmemes = Meme.all.order(votes_count: :desc)
-    render 'index'
+  def by_popularity
+    @memes = Meme.all.order(votes_count: :desc)
+    render 'by_popularity'
   end
 
   # GET /memes/1

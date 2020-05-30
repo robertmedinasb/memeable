@@ -6,11 +6,10 @@ Rails.application.routes.draw do
   devise_for :users
   resources :comments
   resources :memes
-  resources :categories
   get 'user_profiles', to: 'user_profiles#show'
   get 'vote/:id', to: 'memes#vote'
-  get '/bycategory', to: 'memes#bycategory'
-  get '/popularity', to: 'memes#popularity'
+  get '/categories', to: 'memes#by_category'
+  get '/popularity', to: 'memes#by_popularity'
   root to: 'memes#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

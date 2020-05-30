@@ -13,11 +13,11 @@
 
   <%if user_signed_in?%>
     <div class="field">
-      <%= form.text_field :body, placeholder: 'Write a new comment here...', required: true %>
+      <%= form.text_field :body, placeholder: 'Write a new comment here...', required: true, class: 'comments--input' %>
     </div>
     <%= form.hidden_field :meme_id, value: meme_id %>
     <div class="actions">
-      <%= submit_tag 'Comment!' %>
+      <%= submit_tag 'Comment!', class: 'meme-buttons' %>
     </div>
   <%else %>
     <%= link_to "Login to vote!", new_user_session_path, class: 'pink-text text-big'  %>

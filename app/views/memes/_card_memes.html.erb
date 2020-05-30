@@ -1,0 +1,8 @@
+<div class="meme-card">
+  <%= link_to meme_path(meme) do %>
+    <%= image_tag meme.url_source, title: meme.title %>
+  <% end %>
+  <div class="meme-author">
+    <span>Created by: </span><%= meme.owner.username %>
+  </div>
+</div>
