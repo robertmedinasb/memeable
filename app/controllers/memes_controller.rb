@@ -7,7 +7,17 @@ class MemesController < ApplicationController
   # GET /memes
   # GET /memes.json
   def index
-    @memes = Meme.all
+    @listmemes = Meme.all.group_by { |meme| meme[:created_at].to_date }
+  end
+
+  def bycategory
+    @listmemes = Meme.all.group_by { |meme| Category.find(meme[:category_id]).name }
+    render 'index'
+  end
+
+  def popularity
+    @listmemes = Meme.all.order(votes_count: :desc)
+    render 'index'
   end
 
   # GET /memes/1
