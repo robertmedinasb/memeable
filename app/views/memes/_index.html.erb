@@ -1,0 +1,21 @@
+<main class="meme-container">
+  <h1>Memes</h1>
+  <br>
+  <%listmemes =  @memes.all.group_by{|meme|meme[:created_at].to_date} %>
+  <% listmemes.each do |date, memes| %>
+    <h2><%= date %></h2>
+    <ul class="list-memes">
+      <% memes.each do |meme| %>
+        <div class="meme-card">
+          <a class="meme-route" href="/memes/<%= meme.id %>" title="<%= meme.title  %>">
+            <img src="<%= meme.url_source %>" alt="<%= meme.title %>" ></a>
+          <div class="meme-author"><span>Created by: </span> <%= link_to meme.owner.username , "users/#{meme.owner.id}" %></div>
+        </div>
+      <% end %>
+    </ul>
+  <% end %>
+</tbody>
+</table>
+<br>
+<%= link_to 'New Meme', new_meme_path %>
+</main>
