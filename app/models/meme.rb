@@ -8,8 +8,6 @@ class Meme < ApplicationRecord
   has_many :users, through: :comments
   has_many :votes
   has_many :users, through: :votes
-<<<<<<< Updated upstream
-=======
   validates :title, presence: true, uniqueness: true, allow_blank: false
   validate :check_valid_url
 
@@ -32,5 +30,4 @@ class Meme < ApplicationRecord
       end
     end
   end
->>>>>>> Stashed changes
 end
