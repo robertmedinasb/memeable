@@ -1,0 +1,66 @@
+.nav {
+  border-bottom: 1px solid #000000;
+  background: #ffffff;
+  padding: 5px;
+  width: 90%;
+  margin: 0 5%;
+  height: 100px;
+  top: 0;
+  position: fixed;
+}
+.nav {
+  display: flex;
+}
+.nav_links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav_links {
+  list-style: none;
+}
+.nav_links li {
+  margin: 0 7px;
+}
+.nav a {
+  font-family: "Lilita One", cursive;
+  color: #000000;
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 18px;
+  font-family: "Lilita One", cursive;
+}
+.nav_sections {
+  display: flex;
+}
+.nav_sections:first-child {
+  width: 80%;
+  align-items: center;
+}
+.nav_sections:last-child {
+  width: 20%;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.nav_links {
+  margin-left: 20px;
+}
+a.create_meme,
+a.sign_up,
+a.sign_in {
+  background: #78cfba;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 12px 7px;
+}
+a.create_meme,
+a.sign_in,
+a.sing_uo {
+  margin-left: 12px;
+}
+a.sign_in {
+  color: #78cfba;
+  background: #ffffff;
+  border: 1px solid #78cfba;
+}

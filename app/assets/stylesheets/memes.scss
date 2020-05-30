@@ -75,10 +75,7 @@ a, a:visited {
   justify-content: flex-start;
   font-family: "Lilita One", cursive;
 }
-
-.meme-author a,
-.meme-author a:visited,
-.meme-author span {
+.meme-author {
   color: #78cfba;
   font-size: 15px;
   line-height: 14px;
@@ -88,6 +85,11 @@ a, a:visited {
 .meme-author span {
   color: #ffffff;
   margin-right: 5px;
+}
+.list-popularity {
+  display: flex;
+  justify-content: fe;
+  flex-wrap: wrap;
 }
 
 .footer {
