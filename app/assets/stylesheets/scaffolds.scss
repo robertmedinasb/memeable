@@ -1,15 +1,12 @@
-body {
-  background-color: #fff;
-  color: #333;
-  margin: 33px;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-body,
-p,
-ol,
-ul,
-td {
-  font-family: verdana, arial, helvetica, sans-serif;
+body {
+  margin: 0;
+  font-family: "Lilita One", cursive;
   font-size: 13px;
   line-height: 18px;
 }
@@ -69,3 +66,52 @@ div.actions {
 label {
   display: block;
 }
+
+.nav {
+  border-bottom: 1px solid #000000;
+  background: #ffffff;
+  padding: 5px;
+  width: 90%;
+  margin: 0 5%;
+  height: 100px;
+  top: 0;
+  position: fixed;
+}
+.nav {
+  display: flex;
+}
+.nav_links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav_links {
+  list-style: none;
+}
+.nav_links li {
+  margin: 0 7px;
+}
+.nav a {
+  font-family: "Lilita One", cursive;
+  color: #000000;
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 18px;
+}
+.nav_sections {
+  display: flex;
+}
+
+.nav_sections:last-child {
+  width: 20%;
+  align-items: center;
+  justify-content: flex-end;
+}
+.nav_sections:first-child {
+  width: 80%;
+  align-items: center;
+}
+.nav_links {
+  margin-left: 20px;
+}
+
