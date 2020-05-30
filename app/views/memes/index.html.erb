@@ -1,39 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Memes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Type</th>
-      <th>Url source</th>
-      <th>Votes count</th>
-      <th>Comments count</th>
-      <th>Category</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @memes.each do |meme| %>
-      <tr>
-        <td><%= meme.title %></td>
-        <td><%= meme.meme_type %></td>
-        <td><%= meme.url_source %></td>
-        <td><%= meme.votes_count %></td>
-        <td><%= meme.comments_count %></td>
-        <td><%= meme.category_id %></td>
-        <td><%= meme.owner_id %></td>
-        <td><%= link_to 'Show', meme %></td>
-        <td><%= link_to 'Edit', edit_meme_path(meme) %></td>
-        <td><%= link_to 'Destroy', meme, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+<main class="meme-container">
+  <h1>Memes</h1>
+  <br>
+  <%listmemes =  @memes.all.group_by{|meme|meme[:created_at].to_date} %>
+  <% listmemes.each do |date, memes| %>
+    <h2><%= date %></h2>
+    <ul class="list-memes">
+      <% memes.each do |meme| %>
+        <div class="meme-card">
+          <a class="meme-route" href="/memes/<%= meme.id %>" title="<%= meme.title  %>">
+            <img src="<%= meme.url_source %>" alt="<%= meme.title %>" ></a>
+          <div class="meme-author"><span>Created by: </span> <%= meme.owner.username %></div>
+        </div>
+      <% end %>
+    </ul>
+  <% end %>
+</tbody>
 </table>
-
 <br>
-
 <%= link_to 'New Meme', new_meme_path %>
+</main>

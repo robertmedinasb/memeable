@@ -11,12 +11,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <%= render "home/nav" %>
+    <%= render 'layouts/nav' %>
     <main class="main-container">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>
     </main>
-    <%= render "home/footer" %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
