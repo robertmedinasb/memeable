@@ -65,14 +65,35 @@ class MemesController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_meme
-      @meme = Meme.find(params[:id])
+  def vote
+    set_vote
+    if @vote.nil?
+      @vote = new_vote
+      @vote.save
+    else
+      Vote.destroy(@vote.id)
     end
+    redirect_to @meme
+  end
 
-    # Only allow a list of trusted parameters through.
-    def meme_params
-      params.require(:meme).permit(:title, :meme_type, :url_source, :votes_count, :comments_count, :category_id)
-    end
+  private
+
+  def new_vote
+    @vote = Vote.new(user_id: current_user.id, meme_id: params[:id])
+  end
+
+  def set_vote
+    set_meme
+    @vote = Vote.find_by(meme_id: @meme.id, user_id: current_user.id)
+  end
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_meme
+    @meme = Meme.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def meme_params
+    params.require(:meme).permit(:title, :meme_type, :url_source, :votes_count, :comments_count, :category_id)
+  end
 end
