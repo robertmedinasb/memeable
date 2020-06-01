@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
   # get 'user_profiles/votes', to: 'user_profiles#popularity'
   devise_for :users
   resources :comments

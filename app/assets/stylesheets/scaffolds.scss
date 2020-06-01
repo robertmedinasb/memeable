@@ -28,14 +28,17 @@ div.field,
 div.actions {
   margin-bottom: 10px;
 }
-
-#notice {
-  color: #ffffff;
-  background: #78cfba;
-  font-size: 18px;
+.notifications {
+  margin: 0 auto;
+  width: 90%;
+  height: 25px;
+  margin-top: 10px;
 }
-
-.field_with_errors {
+#notice {
+  color: #78cfba;
+  font-size: 20px;
+}
+.noif .field_with_errors {
   padding: 2px;
   background-color: red;
   display: table;

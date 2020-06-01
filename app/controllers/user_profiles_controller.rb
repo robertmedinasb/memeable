@@ -1,5 +1,14 @@
+# frozen_string_literal: true
+
 class UserProfilesController < ApplicationController
   def show
-    @userprofile = User.find(current_user.id)
-  end
+    validation = User.find(params['format'])
+    if validation == current_user
+      @user = current_user
+      render 'show'
+    else
+      @owner = false
+
+   end
+    end
 end

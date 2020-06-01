@@ -1,7 +1,6 @@
 <main class="meme-container">
-  <h1>Memes</h1>
   <% @memes.each do |group, memes| %>
-    <h2><%= group %></h2>
+    <h2 class="subtitle-list"><%= group %></h2>
     <ul class="list-memes">
       <% memes.each do |meme| %>
         <%= render 'card_memes', meme: meme %>

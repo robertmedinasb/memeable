@@ -1,31 +1,28 @@
-<div class="nav-wrapper">
   <nav class="nav">
-    <div class="nav_logo">
-      <a href="<%= root_url %>"><img src="/memeable.png" alt=""></a>
-    </div>
-    <div class="nav_links">
-      <section class="nav-section">
-        <ul class="memes-links">
-          <li><%= link_to "By Category", categories_path %></li>
-          <li><%= link_to "By Popularity", popularity_path %></li>
-          <li><%= link_to "Search", root_path %></li>
-          <% if user_signed_in? %>
-            <%= link_to "Create Meme", new_meme_path, class: "create_meme" %>
-          <% end %>
+  <div class="nav_logo">
+    <a href="<%= root_url %>"><img src="/memeable.png" alt=""></a>
+  </div>
+  <div class="nav_links">
+    <label for="menu" class="nav-menu">
+      <i class="fas fa-bars"></i>
+    </label>
+    <input type="checkbox" name="menu" id="menu-bar">
+    <section class="nav-section">
+      <ul class="memes-links">
+        <li><%= link_to "By Category", categories_path %></li>
+        <li><%= link_to "By Popularity", popularity_path %></li>
+        <li><%= link_to "Search", root_path %></li>
+      </ul>
+    </section>
+    <section class="nav-section">
+      <% if user_signed_in? %>
+        <ul class="user-links">
+          <li><%= link_to current_user.username.capitalize , user_profiles_path(current_user) %></li>
+          <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
         </ul>
-      </section>
-      <section class="nav-section">
-        <% if user_signed_in? %>
-          <ul class="user-links">
-            <li>Welcome,<%= current_user.username %></li>
-            <li><%= link_to "My Account", user_profiles_path %></li>
-            <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
-          </ul>
-        <% else %>
-          <%= link_to "Sign In", new_user_session_path %>
-          <%= link_to "Sign Up", new_user_registration_path %>
-        <% end %>
-      </section>
-    </div>
+      <% else %>
+        <%= link_to "Sign In", new_user_session_path,class: "sign_in" %>
+        <%= link_to "Sign Up", new_user_registration_path, class: "sign_up er"%>
+      <% end %>
+    </section>
   </nav>
-</div>

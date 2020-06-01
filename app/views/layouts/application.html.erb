@@ -6,17 +6,28 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script
+      src="https://use.fontawesome.com/releases/v5.13.0/js/all.js"
+      data-auto-a11y="true"
+    ></script>
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <%= render 'layouts/nav' %>
-    <p id="notice"><%= notice %></p>
-    <p id="alert"><%= alert %></p>
+    <div class="notifications">
+      <p id="notice"><%= notice %></p>
+      <p id="alert"><%= alert %></p>
+    </div>
     <main class="main-container">
       <%= yield %>
     </main>
+    <div class="create-meme-button">
+      <% if user_signed_in? && @show_button %>
+        <a href="memes/new"><img src="logo.png" alt=""></a>
+      <% end %>
+    </div>
     <%= render 'layouts/footer' %>
   </body>
 </html>

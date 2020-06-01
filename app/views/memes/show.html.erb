@@ -1,12 +1,10 @@
 <div class="meme-container">
   <h1 class="meme-title"><%= @meme.title %></h1>
   <img src="<%= @meme.url_source %>">
-
   <div class="row mt-20">
     <div class="meme-cat">
       <strong>Category:</strong> <span class="dark-link"><%= @category %></span>
     </div>
-
     <div class="meme-votes">
       <strong>Votes:</strong> <span class="dark-link"><%= @meme.votes_count %></span>
       <% if user_signed_in? %>
@@ -16,19 +14,15 @@
       <% end %>
     </div>
   </div>
-
   <section class="comments">
-  <h2 class="comments--title">Comments:</h2>
-
-  <%= render 'comments/form', comment: @comment, meme_id: @meme.id %>
-
-  <% @comments.each do |comment| %>
-    <article class="comment-box">
-      <h1 class="green-text"><%= comment.user.username %></h1>
-      <p><%= comment.body %></p>
-    </article>
-  <% end %>
-
+    <h2 class="comments--title">Comments:</h2>
+    <%= render 'comments/form', comment: @comment, meme_id: @meme.id %>
+    <% @comments.each do |comment| %>
+      <article class="comment-box">
+        <h1 class="green-text"><%= comment.user.username %></h1>
+        <p><%= comment.body %></p>
+      </article>
+    <% end %>
   </section>
   <%= link_to 'Edit', edit_meme_path(@meme) %> |
   <%= link_to 'Back', root_path %>

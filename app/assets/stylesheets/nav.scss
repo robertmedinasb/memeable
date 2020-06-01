@@ -1,8 +1,4 @@
-.nav-wrapper {
-  width: 100%;
-  margin: 0 auto;
-  height: 100%;
-}
+$base-color: #78cfba;
 
 .nav {
   display: flex;
@@ -10,9 +6,11 @@
   border-bottom: 1px solid #000000;
   background: #ffffff;
   padding: 5px;
-  width: 95%;
+  width: 90%;
   top: 0;
-  margin: 0 auto;
+  position: sticky;
+  z-index: 5;
+  margin: 0 5%;
 }
 
 .nav_links {
@@ -32,6 +30,7 @@
 }
 .nav_links li,
 .nav_links a {
+  padding: 3px 0;
   margin-left: 10px;
   font-size: 20px;
   line-height: 18px;
@@ -40,22 +39,58 @@
 .nav_sections {
   display: flex;
 }
-
-a.create_meme,
 a.sign_up,
 a.sign_in {
-  background: #78cfba;
+  background: $base-color;
   color: #ffffff;
   border-radius: 10px;
   padding: 12px 7px;
-}
-a.create_meme,
-a.sign_in,
-a.sing_uo {
   margin-left: 12px;
 }
 a.sign_in {
-  color: #78cfba;
+  color: $base-color;
   background: #ffffff;
-  border: 1px solid #78cfba;
+  border: 1px solid $base-color;
+}
+.nav-menu,
+#menu-bar {
+  display: none;
+}
+@media (max-width: 768px) {
+  .nav {
+    height: 90px;
+  }
+  .nav-menu,
+  #menu-bar {
+    display: inherit;
+    justify-self: flex-end;
+  }
+  .nav-menu {
+    position: relative;
+    font-size: 40px;
+    color: $base-color;
+  }
+  #menu-bar {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    opacity: 0;
+    cursor: pointer;
+  }
+  .nav-section {
+    display: none;
+  }
+  .nav_links {
+    justify-content: flex-end;
+  }
+  #menu-bar:checked + .nav-section {
+    display: block;
+    position: absolute;
+    top: 90px;
+  }
+  .nav-section ul {
+    display: flex;
+    flex-direction: column;
+    background: $base-color;
+  }
 }

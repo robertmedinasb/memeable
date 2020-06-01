@@ -1,7 +1,7 @@
 <div class="container">
   <h1>My account</h1>
-  <p>Username: <%= @userprofile.username %></p>
-  <p>Email: <%= @userprofile.email %></p>
-  <p># of memes: <%= @userprofile.memes_count %></p>
+  <p>Username: <%= @user.username %></p>
+  <p>Email: <%= @user.email %></p>
+  <p># of memes: <%= @user.memes_count %></p>
   <%= button_to "Edit", edit_user_registration_path, :method => :get %>
 </div>

@@ -1,20 +1,25 @@
+# frozen_string_literal: true
+
 class MemesController < ApplicationController
-  before_action :set_meme, only: %i[show edit update destroy]
+  before_action :set_meme, only: %i[new show edit update destroy]
 
   # GET /memes
   # GET /memes.json
   def index
     @memes = Meme.all.group_by { |meme| meme[:created_at].strftime('%B %-d, %Y') }
+    @show_button = true
   end
 
   def by_category
     @memes = Meme.all.group_by { |meme| Category.find(meme[:category_id]).name }
     render 'index'
+    @show_button = true
   end
 
   def by_popularity
     @memes = Meme.all.order(votes_count: :desc)
     render 'by_popularity'
+    @show_button = true
   end
 
   # GET /memes/1
@@ -31,8 +36,7 @@ class MemesController < ApplicationController
   end
 
   # GET /memes/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /memes
   # POST /memes.json
