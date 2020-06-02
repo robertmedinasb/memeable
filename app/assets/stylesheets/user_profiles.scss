@@ -1,3 +1,123 @@
 // Place all the styles related to the UserProfiles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+$base-color: #78cfba;
+.form_title {
+  width: 100%;
+  color: $base-color;
+  text-transform: uppercase;
+  position: absolute;
+  text-align: center;
+}
+.sign-up-form {
+  margin-top: 50px;
+  padding: 0 50px 50px 50px;
+  font-family: fantasy;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 450px;
+  width: 60%;
+  min-width: 380px;
+  font-family: "Roboto", sans-serif;
+}
+.sign-up-form p {
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 20px;
+}
+.sign-up-form strong {
+  color: $base-color;
+  font-style: italic;
+}
+.sign-up-form h2 {
+  font-family: "Lilita One", cursive;
+  margin: 30px 0 50px 0;
+  font-weight: normal;
+  width: 100%;
+  text-align: center;
+}
+.image-registration {
+  margin-top: 50px;
+  width: 40%;
+  min-width: 400px;
+  max-width: 450px;
+  opacity: 0.8;
+}
+.image-registration img {
+  width: 100%;
+}
+.new_user {
+  padding: 40px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid $base-color;
+  border-radius: 20px;
+}
+.field,
+.new_user input {
+  width: 100%;
+}
+
+.field label {
+  margin-bottom: 5px;
+  font-style: italic;
+  font-weight: bold;
+}
+.field label::after {
+  content: ":";
+}
+.field input {
+  height: 35px;
+  border-radius: 10px;
+  border: 1px solid $base-color;
+  padding: 0 8px;
+}
+
+.password-length {
+  font-weight: bolder;
+  margin-bottom: 5px;
+  color: $base-color;
+}
+.actions {
+  width: 100%;
+}
+.actions {
+  width: 100%;
+}
+.log_in {
+  text-align: center;
+}
+.new_user input[type="submit"] {
+  margin-top: 10px;
+  width: 100%;
+  background: $base-color;
+  color: #ffffff;
+  font-size: 18px;
+  border-radius: 10px;
+  height: 40px;
+  border: none;
+  text-transform: uppercase;
+  font-family: "Lilita One", cursive;
+}
+@media (max-width: 768px) {
+  .sign-up-form {
+    padding: 0;
+    width: 90%;
+    align-items: center;
+    min-width: inherit;
+    margin-bottom: 40px;
+    max-width: 350px;
+  }
+  .new_user {
+    padding: 20px;
+    width: 100%;
+    max-width: 350px;
+  }
+  .image-registration {
+    display: none;
+  }
+}
