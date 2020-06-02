@@ -8,7 +8,6 @@ class UserProfilesController < ApplicationController
       render 'show'
     else
       @owner = false
-
    end
     end
 end

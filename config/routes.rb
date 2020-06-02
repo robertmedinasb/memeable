@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :memes
   get 'user_profiles', to: 'user_profiles#show'
   get 'vote/:id', to: 'memes#vote'
+  get '/like/:id', to: 'memes#like'
   get '/categories', to: 'memes#by_category'
   get '/popularity', to: 'memes#by_popularity'
   root to: 'memes#index'

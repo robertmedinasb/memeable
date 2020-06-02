@@ -1,8 +1,21 @@
-<div class="meme-card">
+<div id="meme-card-<%= meme.id %>" class="meme-card">
   <%= link_to meme_path(meme) do %>
     <%= image_tag meme.url_source, title: meme.title %>
   <% end %>
   <div class="meme-author">
-    <span>Created by: </span><%= meme.owner.username %>
+    <span> By : <b> <%= meme.owner.username %> </b></span>
+    <div id="meme-votes" class="meme-votes">
+      <% if user_signed_in? %>
+        <% vote = Vote.find_by(meme_id: meme.id, user_id: current_user.id) %>
+        <%= link_to  root_path + 'like/' + meme.id.to_s, remote: true do%>
+          <i class="fas fa-heart <%= vote.nil? ? "like" : "unlike" %> "></i>
+        <% end %>
+      <% else %>
+        <%= link_to  new_user_session_path do%>
+          <i class="fas fa-heart like"></i>
+        <% end %>
+      <% end %>
+      <span><%= meme.votes_count %></span>
+    </div>
   </div>
 </div>

@@ -1,10 +1,11 @@
 <main class="meme-container">
   <% @memes.each do |group, memes| %>
     <h2 class="subtitle-list"><%= group %></h2>
-    <ul class="list-memes">
-      <% memes.each do |meme| %>
-        <%= render 'card_memes', meme: meme %>
-      <% end %>
-    </ul>
-  <% end %>
+  </a>
+  <ul id="list-memes" class="list-memes">
+    <% memes.each do |meme| %>
+      <%= render partial: 'card_memes', locals:{meme: meme} %>
+    <% end %>
+  </ul>
+<% end %>
 </main>

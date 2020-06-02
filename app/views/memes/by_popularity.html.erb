@@ -1,8 +1,12 @@
 <main class="meme-container">
   <h1 class="subtitle-list">Popularity</h1>
+  <p>¡ Top <%= @memes.size %> memes of the day !</p>
   <section class="list-popularity">
-    <% @memes.each do |meme| %>
-      <%= render 'card_memes', meme: meme %>
+    <% @memes.each_with_index do |meme, index| %>
+      <div class="popularity-card">
+        <h2 class="subtitle-list"># <%= index + 1  %></h2>
+        <%= render 'card_memes', meme: meme %>
+      </div>
     <% end %>
   </section>
 </main>

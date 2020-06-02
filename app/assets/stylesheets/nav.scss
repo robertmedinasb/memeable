@@ -56,9 +56,79 @@ a.sign_in {
 #menu-bar {
   display: none;
 }
-@media (max-width: 768px) {
+a.nav-create-meme {
+  color: #ffffff;
+  background: $base-color;
+  padding: 10px 7px;
+  border-radius: 10px;
+}
+.user-links li:last-child {
+  display: flex;
+  position: relative;
+}
+.fa-sign-out-alt {
+  font-size: 25px;
+  color: $base-color;
+}
+a.log-out {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+}
+@media (max-width: 900px) {
+  a.nav-create-meme {
+    display: none;
+  }
+  div.create-meme-button {
+    display: flex;
+    position: sticky;
+    margin: 0 auto;
+    bottom: 10px;
+    margin-bottom: 15px;
+    background: $base-color;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    width: fit-content;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
+  }
+  div.create-meme-button:hover {
+    color: $base-color;
+    background: #ffffff;
+    border: 1px solid $base-color;
+  }
+  .create-meme-button img {
+    width: 100%;
+  }
+  a.create-meme-link {
+    margin-left: 5px;
+    font-size: 22px;
+    font-weight: normal;
+  }
+  .memes-links-button {
+    list-style: none;
+    position: absolute;
+    background: white;
+  }
+}
+@media (max-width: 776px) {
   .nav {
     height: 90px;
+  }
+  .nav_logo {
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav_logo img {
+    width: 100%;
   }
   .nav-menu,
   #menu-bar {
@@ -66,31 +136,66 @@ a.sign_in {
     justify-self: flex-end;
   }
   .nav-menu {
-    position: relative;
-    font-size: 40px;
+    position: fixed;
+    right: 5%;
+    font-size: 30px;
     color: $base-color;
   }
   #menu-bar {
     position: absolute;
+    opacity: 0;
     width: 40px;
     height: 40px;
-    opacity: 0;
     cursor: pointer;
   }
-  .nav-section {
-    display: none;
-  }
+
   .nav_links {
     justify-content: flex-end;
   }
-  #menu-bar:checked + .nav-section {
-    display: block;
+  .nav-section1 {
+    display: none;
+    opacity: 0;
+  }
+  .nav-section2 {
+    position: sticky;
+    right: 100px;
+  }
+  #menu-bar:checked ~ .nav-section1 {
+    transition: 0.5s all ease-in-out;
+    display: flex;
+    justify-content: center;
     position: absolute;
     top: 90px;
+    opacity: 1;
   }
-  .nav-section ul {
+  .nav-section1 ul {
     display: flex;
     flex-direction: column;
+  }
+  .nav-section1 li {
+    margin-top: 15px;
+    padding: 20px 0;
+    width: 150px;
+    border: 1px solid $base-color;
+    background: #ffffff;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.8s;
+  }
+  .nav-section1 li:last-child {
+    display: none;
+  }
+  .nav-section1 li a {
+    color: $base-color;
+    width: 100%;
+    height: 100%;
+  }
+  .nav-section1 li:hover {
+    color: #ffffff;
     background: $base-color;
+  }
+  .nav-section1 li:hover a {
+    color: #ffffff;
   }
 }
